@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Import from the standard library
+from os.path import split
+import argparse
+
+# Import from mlproject
+import mlproject
+from mlproject.distance import haversine
+
+if __name__ == '__main__':
+    usage = '%(prog)s'
+    description = 'mlproject_description'
+    # https://docs.python.org/3/library/argparse.html
+    # https://docs.python.org/3/howto/argparse.html
+    parser = argparse.ArgumentParser(description=description, usage=usage)
+    parser.add_argument("-coords", "--verbosity", action="count", default=0)
+    parser.add_argument("lon1", type=float, help="Lon1")
+    parser.add_argument("lat1", type=float, help="Lat1")
+    parser.add_argument("lon2", type=float, help="Lon2")
+    parser.add_argument("lat2", type=float, help="Lat2")
+    args = parser.parse_args()
+    res = haversine(lon1, lat1, lon2, lat2)
+    print('distance is {}'.format(res))
