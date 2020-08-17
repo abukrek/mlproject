@@ -1,1 +1,1 @@
-web: pip install . -U && mlproject-mkaraki-run
+web: pip install . -U && mlproject-run
