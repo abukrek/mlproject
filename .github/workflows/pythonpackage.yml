@@ -8,8 +8,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.6, 3.7]
@@ -27,7 +26,6 @@ jobs:
     - name: Install package and test
       run: |
         make install test clean
-
   deploy_heroku:
     runs-on: ubuntu-latest
     steps:
